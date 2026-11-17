@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CIDP am Arbeitsplatz – Informationen für Arbeitgeber</title>
+  <meta name="description" content="Kompakte Broschüre, die Beschäftigte mit CIDP ihrem Arbeitgeber übergeben können: Was ist CIDP, wie wirkt es sich auf die Arbeit aus, was hilft.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400..700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* on-screen intro: print button bottom-right beside the lead */
+    section.block.intro { padding-bottom: var(--space-s); }
+    .intro + .block { padding-top: var(--space-s); }
+    @media (min-width: 64rem) {
+      .intro .wrap > .eyebrow, .intro .wrap > h1, .intro .wrap > .lead, .intro .wrap > .actions { grid-column: 1 / 8; }
+      .intro .wrap > .hero-art { grid-column: 8 / 13; grid-row: 1 / span 4; align-self: end; max-width: none; }
+      .wrap > .sheet { grid-column: 1 / 10; }
+    }
+
+    /* the sheet: a white A4 page on the cream desk */
+    .sheet { background: var(--paper-white); border: 1px solid var(--rule); border-radius: 0; box-shadow: none; max-width: 46rem; margin: 0; padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3.25rem); font-size: var(--step-0); line-height: 1.5; counter-reset: part; }
+    .sheet p, .sheet li { max-width: none; }
+
+    /* head with a newspaper Scotch rule (2px + 1px) */
+    .sheet-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; align-items: end; position: relative; padding-bottom: 0.75rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.5rem; }
+    .sheet-head::after { content: ''; position: absolute; left: 0; right: 0; bottom: -5px; border-bottom: 1px solid var(--ink); }
+    .sheet-head .eyebrow { margin-bottom: 0.5rem; }
+    .sheet-head h1 { font: 400 var(--step-3)/1.05 var(--font-display); letter-spacing: -0.015em; margin: 0; max-width: none; }
+    .sheet-meta { text-align: right; font-size: var(--step--1); line-height: 1.3; color: var(--ink-2); }
+
+    /* fill-in lines: label text run + input, two grid items per line */
+    .personal { display: grid; gap: 0.5rem; margin: 0 0 1.75rem; }
+    .personal label { font: inherit; margin: 0; }
+    .personal p { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: 0.75rem; align-items: end; margin: 0; font-size: var(--step--1); color: var(--ink-2); }
+    .personal input.fill { display: block; width: 100%; min-width: 0; min-height: 44px; padding: 0 0.25rem; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; font-size: var(--step-0); color: var(--ink); }
+    .personal input.fill:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-bottom-width: 2px; }
+
+    /* body: numbered running heads, lists with accent dash markers */
+    .sheet h2 { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); align-items: baseline; font: 600 var(--step-1)/var(--leading-sub) var(--font-display); color: var(--ink); margin: 1.75rem 0 0.6rem; max-width: none; }
+    .sheet h2::before { counter-increment: part; content: counter(part, decimal-leading-zero); font: 600 var(--step--1)/1 var(--font-body); letter-spacing: 0.08em; color: var(--accent); }
+    .sheet h2:first-of-type { margin-top: 0; }
+    .sheet ul { list-style: '– ' outside; padding-left: 1.4rem; margin: 0 0 1rem; }
+    .sheet li::marker { color: var(--accent); }
+    .sheet li { margin: 0 0 0.45rem; }
+    .sheet-foot { margin: 2rem 0 0; padding-top: 0.75rem; border-top: 1px solid var(--rule); font-size: var(--step--1); line-height: 1.45; color: var(--ink-2); }
+    @media screen and (max-width: 43.98rem) {
+      .sheet-head { grid-template-columns: 1fr; }
+      .sheet-meta { text-align: left; }
+      .personal p { grid-template-columns: 1fr; }
+    }
+
+    /* A4, two pages, black and white (tokens and @page come from style.css) */
+    @media print {
+      .intro { display: none; }
+      .sheet { border: 0; padding: 0; max-width: none; background: none; font-size: 10.5pt; line-height: 1.45; }
+      .sheet-head h1 { font-size: 24pt; }
+      .personal p { font-size: 10.5pt; }
+      .sheet h2 { font-size: 13pt; margin: 14pt 0 5pt; break-after: avoid; }
+      .sheet h2.page-break { break-before: page; margin-top: 0; }
+      .sheet li, .personal, .sheet-head { break-inside: avoid; }
+      .personal input.fill { min-height: 0; height: 7mm; border-bottom: 1px solid #000; }
+      .personal input.fill::placeholder { color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">CIDP<span>.verstehen</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="index.html">Über CIDP</a></li>
+          <li><a href="wegweiser.html">Wegweiser</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="tagebuch.html">Tagebuch</a></li>
+          <li><a href="broschuere.html" aria-current="page">Für Arbeitgeber</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="block noprint intro">
+      <div class="wrap">
+        <span class="eyebrow">Zum Ausdrucken und Weitergeben</span>
+        <h1>Broschüre für Ihren Arbeitgeber</h1>
+        <p class="lead">Die meisten Vorgesetzten haben noch nie von CIDP gehört. Diese zwei Seiten erklären die Erkrankung sachlich und zeigen, welche einfachen Anpassungen helfen. Tragen Sie unten Ihren Namen ein (optional), drucken Sie die Seite aus oder speichern Sie sie als PDF.</p>
+        <div class="actions">
+          <button class="btn" type="button" onclick="window.print()">Drucken / als PDF speichern</button>
+        </div>
+        <figure class="hero-art"><img src="img/arbeitsplatz.jpg" alt="Illustration: Schreibtisch mit einem Blatt Papier, Tasse und Pflanze vor einem Fenster, Risografie in Petrol und Ocker" width="1200" height="1500" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <article class="sheet" aria-label="Broschüre">
+          <div class="sheet-head">
+            <div>
+              <span class="eyebrow">Information für Arbeitgeber und Vorgesetzte</span>
+              <h1>CIDP am Arbeitsplatz</h1>
+            </div>
+            <div class="sheet-meta">
+              <div><strong>CIDP</strong></div>
+              <div>Chronisch inflammatorische<br>demyelinisierende Polyneuropathie</div>
+            </div>
+          </div>
+
+          <div class="personal">
+            <p><label for="fill-name">Diese Information übergibt Ihnen:</label> <input class="fill" id="fill-name" type="text" autocomplete="name" placeholder="Name (optional)"></p>
+            <p><label for="fill-praxis">Behandelnde neurologische Praxis / Klinik:</label> <input class="fill" id="fill-praxis" type="text" placeholder="optional"></p>
+          </div>
+
+          <h2>Worum geht es?</h2>
+          <p>Ihre Mitarbeiterin oder Ihr Mitarbeiter lebt mit <strong>CIDP</strong>, einer seltenen Autoimmunerkrankung der peripheren Nerven. Das Immunsystem greift die Isolierschicht der Nerven an, die Signale zwischen Gehirn und Muskeln werden verlangsamt oder blockiert. Betroffen sind etwa 1 bis 9 von 100.000 Menschen. CIDP ist <strong>nicht ansteckend</strong>, betrifft <strong>nicht den Verstand</strong> und ist <strong>behandelbar</strong>, aber in der Regel nicht heilbar. Die Erkrankung verläuft chronisch, oft in Schüben.</p>
+
+          <h2>Wie kann sich CIDP im Arbeitsalltag zeigen?</h2>
+          <ul>
+            <li><strong>Muskelschwäche</strong> in Beinen und Armen: Treppen, langes Stehen, schweres Heben oder feinmotorische Tätigkeiten fallen schwer.</li>
+            <li><strong>Gefühlsstörungen</strong> in Händen und Füßen: Tippen, Greifen und sicheres Gehen können beeinträchtigt sein.</li>
+            <li><strong>Fatigue</strong>: eine starke körperliche Erschöpfung, die nichts mit Motivation zu tun hat und sich durch Pausen nur teilweise bessert.</li>
+            <li><strong>Schwankende Tagesform</strong>: Ein guter Tag sagt nichts über den nächsten aus. Vor einer Infusion lässt die Wirkung oft spürbar nach.</li>
+            <li><strong>Regelmäßige Therapietermine</strong>: Immunglobulin-Infusionen finden meist alle 3 bis 6 Wochen statt und dauern mehrere Stunden, teilweise mit Nachwirkungen am Folgetag.</li>
+          </ul>
+          <p>Viele dieser Einschränkungen sind <strong>von außen unsichtbar</strong>. Das führt leicht zu Missverständnissen. Betroffene wollen in der Regel weiterarbeiten und leisten, brauchen dafür aber verlässliche Rahmenbedingungen.</p>
+
+          <h2 class="page-break">Was hilft konkret?</h2>
+          <ul>
+            <li><strong>Flexible Arbeitszeiten</strong> und die Möglichkeit, an Therapietagen frei oder von zu Hause zu arbeiten.</li>
+            <li><strong>Homeoffice-Anteil</strong>, um Pendelwege an schwachen Tagen zu vermeiden.</li>
+            <li><strong>Ergonomischer Arbeitsplatz</strong>: höhenverstellbarer Tisch, geeigneter Stuhl, ggf. Spracheingabe oder ergonomische Tastatur.</li>
+            <li><strong>Kurze Wege und Barrierefreiheit</strong>: Parkplatz in der Nähe, Aufzug statt Treppe, Rückzugsraum für Pausen.</li>
+            <li><strong>Anpassung körperlicher Tätigkeiten</strong>: Heben, langes Stehen und Arbeiten auf Leitern vermeiden oder umverteilen.</li>
+            <li><strong>Offene Kommunikation</strong>: ein fester Ansprechpartner und ein vertraulicher Rahmen, um Veränderungen frühzeitig zu besprechen.</li>
+          </ul>
+
+          <h2>Rechtlicher Rahmen in Deutschland (Kurzüberblick)</h2>
+          <ul>
+            <li>Bei CIDP kann ein <strong>Grad der Behinderung (GdB)</strong> festgestellt werden. Ab einem GdB von 50 gilt eine Schwerbehinderung, ab 30 ist eine Gleichstellung möglich. Damit verbunden sind u. a. besonderer Kündigungsschutz und Zusatzurlaub.</li>
+            <li>Arbeitgeber können für <strong>Arbeitsplatzanpassungen</strong> Zuschüsse beim Integrationsamt / Inklusionsamt oder der Agentur für Arbeit beantragen.</li>
+            <li>Nach längerer Erkrankung ist ein <strong>Betriebliches Eingliederungsmanagement (BEM)</strong> nach § 167 Abs. 2 SGB IX vorgesehen. Eine stufenweise Wiedereingliederung („Hamburger Modell“) hat sich bewährt.</li>
+            <li>Beschäftigte sind <strong>nicht verpflichtet</strong>, die Diagnose zu nennen. Wenn sie es tun, ist das ein Vertrauensvorschuss, der vertraulich behandelt werden sollte.</li>
+          </ul>
+
+          <h2>Wo gibt es mehr Informationen?</h2>
+          <ul>
+            <li>Deutsche GBS CIDP Initiative e. V. – <a href="https://www.gbs-cidp.de">www.gbs-cidp.de</a></li>
+            <li>Deutsche Gesellschaft für Muskelkranke e. V. – <a href="https://www.dgm.org">www.dgm.org</a></li>
+            <li>Portal zu Behinderung und Teilhabe des BMAS – <a href="https://www.einfach-teilhaben.de">www.einfach-teilhaben.de</a></li>
+          </ul>
+
+          <p class="sheet-foot">Diese Broschüre wurde im Rahmen eines Studierendenprojekts erstellt und dient der allgemeinen Information. Sie ersetzt keine ärztliche oder rechtliche Beratung. Stand: November 2026.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Tipp</strong> Im Druckdialog „Als PDF speichern“ wählen, um die Broschüre per E-Mail weiterzugeben.</p>
+    </div>
+  </footer>
+</body>
+</html>

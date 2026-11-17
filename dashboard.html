@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mein Verlauf – CIDP verstehen</title>
+  <meta name="description" content="Grafische Auswertung des CIDP-Symptomtagebuchs: Übersicht, Verlauf je Wert, Kalender, Therapietage und Ereignisse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400..700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">CIDP<span>.verstehen</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="index.html">Über CIDP</a></li>
+          <li><a href="wegweiser.html">Wegweiser</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="tagebuch.html" aria-current="page">Tagebuch</a></li>
+          <li><a href="broschuere.html">Für Arbeitgeber</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-compact" aria-labelledby="dash-heading">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Mein Tagebuch</span>
+          <h1 id="dash-heading">Mein Verlauf</h1>
+          <p class="lead">Oben die Übersicht, darunter ein Wert im Detail. Tippen Sie auf eine Kachel, um den Wert zu wechseln.</p>
+          <div class="actions noprint">
+            <a class="btn ghost" href="tagebuch.html">Zurück zum Tagebuch</a>
+            <button class="btn ghost" type="button" onclick="window.print()">Drucken</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="empty" hidden>
+      <div class="wrap">
+        <p class="empty">Noch keine Einträge vorhanden. Sobald Sie im Tagebuch Tage eingetragen haben, erscheint hier Ihr Verlauf.</p>
+        <div class="actions"><a class="btn" href="tagebuch.html">Zum Tagebuch</a></div>
+      </div>
+    </section>
+
+    <div id="dash">
+      <section class="block" aria-labelledby="overview-heading">
+        <div class="wrap">
+          <div class="filters noprint">
+            <fieldset class="seg">
+              <legend>Zeitraum</legend>
+              <input type="radio" name="range" id="r7" value="7"><label for="r7">7 Tage</label>
+              <input type="radio" name="range" id="r30" value="30" checked><label for="r30">30 Tage</label>
+              <input type="radio" name="range" id="r90" value="90"><label for="r90">90 Tage</label>
+              <input type="radio" name="range" id="rall" value="0"><label for="rall">Alles</label>
+            </fieldset>
+            <p class="hint" id="range-note" aria-live="polite"></p>
+          </div>
+
+          <h2 id="overview-heading">Übersicht</h2>
+          <div class="metrics">
+            <button class="metric" type="button" data-metric="strength" aria-pressed="true"><span class="metric-name"><i style="--c:#0B8C7E"></i>Kraft</span><span class="metric-value">–</span><svg viewBox="0 0 160 44" aria-hidden="true"></svg><span class="metric-avg"></span></button>
+            <button class="metric" type="button" data-metric="fatigue" aria-pressed="false"><span class="metric-name"><i style="--c:#A8781A"></i>Fatigue</span><span class="metric-value">–</span><svg viewBox="0 0 160 44" aria-hidden="true"></svg><span class="metric-avg"></span></button>
+            <button class="metric" type="button" data-metric="pain" aria-pressed="false"><span class="metric-name"><i style="--c:#5B68B5"></i>Schmerz</span><span class="metric-value">–</span><svg viewBox="0 0 160 44" aria-hidden="true"></svg><span class="metric-avg"></span></button>
+            <button class="metric" type="button" data-metric="numbness" aria-pressed="false"><span class="metric-name"><i style="--c:#BA4E3C"></i>Taubheit</span><span class="metric-value">–</span><svg viewBox="0 0 160 44" aria-hidden="true"></svg><span class="metric-avg"></span></button>
+            <div class="metric metric-static"><span class="metric-name">Letzte Therapie</span><span class="metric-value" id="stat-therapy">–</span><span class="metric-avg" id="stat-therapy-note"></span></div>
+          </div>
+          <p class="hint">Großer Wert = letzter Eintrag. Ø = Durchschnitt aller Einträge im Zeitraum. Vorwoche = letzte 7 Tage gegen die 7 Tage davor.</p>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="detail-title">
+        <div class="wrap">
+          <h2 id="detail-title">Kraft im Verlauf</h2>
+          <p class="hint" id="detail-sub"></p>
+          <div class="chart">
+            <svg id="detail-chart" viewBox="0 0 960 340" role="img" tabindex="0" aria-describedby="detail-help"></svg>
+            <div class="tip" id="detail-tip" hidden></div>
+          </div>
+          <p class="hint" id="detail-help">Maus oder Pfeiltasten links und rechts zeigen einzelne Tage, Escape blendet aus.</p>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="cal-title">
+        <div class="wrap">
+          <h2 id="cal-title">Kraft als Kalender</h2>
+          <div class="cal-head"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+          <div class="calendar" id="calendar"></div>
+          <p class="cal-legend" id="cal-legend"></p>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="bar-heading">
+        <div class="wrap">
+          <h2 id="bar-heading">Ereignisse im Zeitraum</h2>
+          <div class="chart chart-bars">
+            <svg id="bar-chart" viewBox="0 0 960 176" role="img"></svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="table-heading">
+        <div class="wrap">
+          <details class="table-view">
+            <summary><h2 id="table-heading">Alle Werte als Tabelle</h2></summary>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th scope="col">Datum</th><th scope="col">Kraft</th><th scope="col">Fatigue</th><th scope="col">Schmerz</th><th scope="col">Taubheit</th><th scope="col">Therapie</th><th scope="col">Ereignisse</th></tr></thead>
+                <tbody id="table-body"></tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Hinweis</strong> Die Auswertung ersetzt keine ärztliche Beurteilung. Nehmen Sie sie als Gesprächsgrundlage mit zum nächsten Termin.</p>
+    </div>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

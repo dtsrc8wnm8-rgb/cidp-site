@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ: Arbeit und Sozialrecht – CIDP verstehen</title>
+  <meta name="description" content="Kurze Antworten auf häufige Fragen zu Arbeitsfähigkeit, Arbeitsplatzanpassung, Krankheitsausfällen, Schwerbehindertenrecht und Sozialleistungen bei CIDP.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400..700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">CIDP<span>.verstehen</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="index.html">Über CIDP</a></li>
+          <li><a href="wegweiser.html">Wegweiser</a></li>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          <li><a href="tagebuch.html">Tagebuch</a></li>
+          <li><a href="broschuere.html">Für Arbeitgeber</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-compact" aria-labelledby="faq-heading">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Sozialrechtliche Themen und Beruf</span>
+          <h1 id="faq-heading">Häufige Fragen</h1>
+          <p class="lead">Wählen Sie ein Thema und öffnen Sie die Fragen, die zu Ihrer Situation passen. Den vollständigen Ablauf mit Fristen finden Sie im <a href="wegweiser.html">Wegweiser</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="topic">
+      <div class="wrap">
+        <fieldset class="seg seg-wrap noprint" id="topics">
+          <legend>Was beschäftigt Sie gerade?</legend>
+        </fieldset>
+        <h2 id="topic"></h2>
+        <div class="faq" id="faqs"></div>
+        <p class="hint">Die Antworten sind eine erste Orientierung und keine individuelle Rechts- oder medizinische Beratung. Kostenlos und unabhängig berät die <a href="https://www.teilhabeberatung.de">EUTB</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Hinweis</strong> Diese Website ist ein Studierendenprojekt und dient ausschließlich der allgemeinen Information.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Jede Antwort kann auf einen Schritt im Wegweiser zeigen.
+      var data = {
+        'Arbeitsfähigkeit': [
+          ['Kann ich mit CIDP weiterhin arbeiten?', 'Das hängt von Ihren Beschwerden und den Anforderungen Ihres Arbeitsplatzes ab. Besprechen Sie konkrete Einschränkungen mit Ihrem Behandlungsteam. Nächster Schritt: Belastungen und mögliche Anpassungen notieren.', 'tagebuch.html', 'Zum Tagebuch'],
+          ['Wer beurteilt meine Arbeitsfähigkeit?', 'Ärztliche Einschätzungen und gegebenenfalls arbeitsmedizinische oder sozialmedizinische Prüfungen können eine Rolle spielen. Nächster Schritt: Fragen für den Arzttermin sammeln.', 'wegweiser.html#h-tipps', 'Tipps für Arzt- und Gutachtertermine'],
+          ['Wie funktioniert eine stufenweise Wiedereingliederung?', 'Nach längerer Arbeitsunfähigkeit kann ein schrittweiser Wiedereinstieg infrage kommen. Die Stunden steigen nach ärztlichem Plan, Sie gelten dabei weiter als arbeitsunfähig. Die konkrete Planung erfolgt mit den beteiligten Stellen.', 'wegweiser.html#schritt-5', 'Wegweiser, Schritt 5']
+        ],
+        'Arbeitsplatzanpassung': [
+          ['Welche Anpassungen sind möglich?', 'Je nach Tätigkeit können zum Beispiel ergonomische Hilfsmittel, veränderte Aufgaben oder Arbeitszeiten sinnvoll sein. Nächster Schritt: Die drei größten Hürden im Arbeitsalltag notieren.', 'broschuere.html', 'Broschüre für Arbeitgeber'],
+          ['Wer kann bei Arbeitsplatzanpassungen helfen?', 'Unter anderem betriebliche Ansprechpersonen, Rehabilitationsträger und gegebenenfalls das Integrationsamt beziehungsweise Inklusionsamt können relevant sein.', 'wegweiser.html#h-stellen', 'Wer ist wofür zuständig?'],
+          ['Wie bereite ich ein Gespräch mit meinem Arbeitgeber vor?', 'Beschreiben Sie konkrete Schwierigkeiten und welche Lösungen helfen könnten. Medizinische Details müssen Sie dabei nicht automatisch offenlegen. Die Broschüre erklärt Ihrem Arbeitgeber die Erkrankung in wenigen Minuten.', 'broschuere.html', 'Broschüre für Arbeitgeber']
+        ],
+        'Krankheitsausfälle': [
+          ['Muss ich meinem Arbeitgeber die Diagnose nennen?', 'In der Regel müssen Sie nicht die konkrete Diagnose mitteilen. Die Pflicht, Arbeitsunfähigkeit und deren voraussichtliche Dauer zu melden, bleibt davon unberührt.', 'wegweiser.html#schritt-2', 'Wegweiser, Schritt 2'],
+          ['Was ist ein BEM?', 'Das betriebliche Eingliederungsmanagement soll nach längeren Fehlzeiten Möglichkeiten finden, die Beschäftigung zu erhalten. Der Arbeitgeber muss es anbieten, wenn Sie in einem Jahr länger als sechs Wochen ausgefallen sind. Die Teilnahme ist freiwillig.', 'wegweiser.html#schritt-5', 'Wegweiser, Schritt 5'],
+          ['Wann kommt Krankengeld infrage?', 'Bei längerer Arbeitsunfähigkeit zahlt nach sechs Wochen Gehaltsfortzahlung die Krankenkasse Krankengeld. Voraussetzungen und Dauer sollten Sie bei Ihrer Krankenkasse prüfen lassen.', 'wegweiser.html#schritt-4', 'Wegweiser, Schritt 4']
+        ],
+        'Schwerbehindertenrecht': [
+          ['Ist CIDP automatisch eine Schwerbehinderung?', 'Nein. Entscheidend sind die individuellen dauerhaften Auswirkungen auf die Teilhabe, nicht allein der Name der Diagnose.', '', ''],
+          ['Wie beantrage ich einen Grad der Behinderung?', 'Der Antrag wird beim Versorgungsamt gestellt. Medizinische Unterlagen und Angaben zu den Einschränkungen sind hilfreich. Nächster Schritt: Befunde zusammentragen.', 'https://www.einfach-teilhaben.de', 'einfach-teilhaben.de'],
+          ['Was bedeutet Gleichstellung?', 'Bei einem GdB von 30 oder 40 kann unter bestimmten Bedingungen eine Gleichstellung im Arbeitsleben beantragt werden. Zuständig ist die Agentur für Arbeit.', 'wegweiser.html#h-stellen', 'Wer ist wofür zuständig?'],
+          ['Welche Nachteilsausgleiche gibt es?', 'Mögliche Ansprüche hängen unter anderem vom festgestellten GdB und von Merkzeichen ab. Eine individuelle Prüfung ist wichtig.', 'https://www.einfach-teilhaben.de', 'einfach-teilhaben.de']
+        ],
+        'Sozialleistungen': [
+          ['Welche finanziellen Hilfen kommen infrage?', 'Je nach Situation können zum Beispiel Krankengeld, Rehabilitationsleistungen oder Leistungen zur Teilhabe am Arbeitsleben relevant sein.', 'wegweiser.html#schritt-4', 'Wegweiser, Schritt 4'],
+          ['Wer hilft beim Ausfüllen von Anträgen?', 'Beratungsstellen wie die Ergänzende unabhängige Teilhabeberatung (EUTB) bieten kostenlos eine erste Orientierung.', 'https://www.teilhabeberatung.de', 'teilhabeberatung.de'],
+          ['Was mache ich bei einer Ablehnung?', 'Prüfen Sie den Bescheid und die Rechtsbehelfsbelehrung. Bei einem Widerspruch gelten Fristen, holen Sie bei Bedarf Beratung ein.', '', ''],
+          ['Wo finde ich offizielle Informationen?', 'Startpunkte sind die Deutsche Rentenversicherung, die Bundesagentur für Arbeit und die zuständige Landesbehörde.', 'wegweiser.html#h-quellen', 'Quellen im Wegweiser']
+        ]
+      };
+      var topics = Object.keys(data);
+      var current = topics[0];
+      var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+      var seg = document.getElementById('topics');
+
+      seg.insertAdjacentHTML('beforeend', topics.map(function (t, i) {
+        return '<input type="radio" name="topic" id="t' + i + '" value="' + esc(t) + '"' + (i === 0 ? ' checked' : '') + '><label for="t' + i + '">' + esc(t) + '</label>';
+      }).join(''));
+      seg.addEventListener('change', function (ev) { current = ev.target.value; render(); });
+
+      function render() {
+        document.getElementById('topic').textContent = current;
+        document.getElementById('faqs').innerHTML = data[current].map(function (row) {
+          var link = row[2] ? '<p class="faq-link"><a href="' + esc(row[2]) + '">' + esc(row[3]) + '</a></p>' : '';
+          return '<details><summary>' + esc(row[0]) + '</summary><p>' + esc(row[1]) + '</p>' + link + '</details>';
+        }).join('');
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>

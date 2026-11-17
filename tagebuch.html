@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Symptomtagebuch – CIDP verstehen</title>
+  <meta name="description" content="Tägliches Symptomtagebuch für Menschen mit CIDP. Daten bleiben lokal im Browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400..700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">CIDP<span>.verstehen</span></a>
+      <nav aria-label="Hauptnavigation">
+        <ul role="list">
+          <li><a href="index.html">Über CIDP</a></li>
+          <li><a href="wegweiser.html">Wegweiser</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="tagebuch.html" aria-current="page">Tagebuch</a></li>
+          <li><a href="broschuere.html">Für Arbeitgeber</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="tb-heading">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Mein Tagebuch</span>
+          <h1 id="tb-heading">Wie geht es mir heute?</h1>
+          <p class="lead noprint">Ein Eintrag pro Tag genügt. So erkennen Sie Muster, sehen den Effekt Ihrer Therapie und haben beim nächsten Arzttermin konkrete Zahlen zur Hand. Alle Angaben bleiben auf diesem Gerät.</p>
+        </div>
+        <figure class="hero-art"><img src="img/morgen.jpg" alt="Illustration: Sonnenaufgang hinter ruhigen Wellen, Risografie in Petrol und Ocker" width="1200" height="1500" fetchpriority="high"></figure>
+      </div>
+    </section>
+
+    <section class="block noprint">
+      <div class="wrap two-col">
+        <form class="journal" id="journal-form" novalidate>
+          <div class="form-row">
+            <div>
+              <label for="date">Datum</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+              <label for="infusion">Therapie heute</label>
+              <select id="infusion" name="therapy">
+                <option value="">Keine</option>
+                <option>Immunglobulin-Infusion (IVIG)</option>
+                <option>Immunglobulin subkutan (SCIG)</option>
+                <option>Kortison</option>
+                <option>Plasmapherese</option>
+                <option>Physiotherapie</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="strength">Kraft in Armen und Beinen <span class="hint">(0 = sehr schwach, 10 = normal)</span></label>
+            <div class="range">
+              <input type="range" id="strength" name="strength" min="0" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
+              <output for="strength">5</output>
+            </div>
+          </div>
+
+          <div>
+            <label for="fatigue">Erschöpfung / Fatigue <span class="hint">(0 = keine, 10 = extrem)</span></label>
+            <div class="range">
+              <input type="range" id="fatigue" name="fatigue" min="0" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
+              <output for="fatigue">5</output>
+            </div>
+          </div>
+
+          <div>
+            <label for="pain">Schmerzen <span class="hint">(0 = keine, 10 = unerträglich)</span></label>
+            <div class="range">
+              <input type="range" id="pain" name="pain" min="0" max="10" value="0" oninput="this.nextElementSibling.value = this.value">
+              <output for="pain">0</output>
+            </div>
+          </div>
+
+          <div>
+            <label for="numbness">Taubheit / Kribbeln <span class="hint">(0 = keine, 10 = sehr stark)</span></label>
+            <div class="range">
+              <input type="range" id="numbness" name="numbness" min="0" max="10" value="0" oninput="this.nextElementSibling.value = this.value">
+              <output for="numbness">0</output>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Heute aufgetreten</legend>
+            <div class="checks">
+              <label><input type="checkbox" name="events" value="Sturz / Stolpern"> Sturz / Stolpern</label>
+              <label><input type="checkbox" name="events" value="Schlecht geschlafen"> Schlecht geschlafen</label>
+              <label><input type="checkbox" name="events" value="Hilfsmittel genutzt"> Hilfsmittel genutzt</label>
+              <label><input type="checkbox" name="events" value="Arbeitsunfähig"> Arbeitsunfähig</label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="notes">Notizen <span class="hint">(optional)</span></label>
+            <textarea id="notes" name="notes" placeholder="Was war heute anders? Was hat geholfen?"></textarea>
+          </div>
+
+          <div class="actions">
+            <button class="btn" type="submit">Eintrag speichern</button>
+            <p id="form-msg" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <aside>
+          <div class="card">
+            <h2>Tipps für gute Einträge</h2>
+            <ul>
+              <li>Tragen Sie möglichst zur gleichen Tageszeit ein, etwa abends.</li>
+              <li>Notieren Sie den Tag der Infusion. So sehen Sie, ob die Wirkung vor dem nächsten Termin nachlässt.</li>
+              <li>Exportieren Sie Ihr Tagebuch vor dem Arzttermin als Tabelle oder drucken Sie es aus.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2>Datenschutz</h2>
+            <p>Ihre Einträge werden ausschließlich im Speicher dieses Browsers abgelegt. Wenn Sie Browserdaten löschen oder ein anderes Gerät nutzen, sind die Einträge dort nicht vorhanden. Nutzen Sie den Export als Sicherung.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Meine Einträge</h2>
+        <div class="toolbar">
+          <p class="hint" id="count"></p>
+          <div class="actions">
+            <a class="btn small" href="dashboard.html">Zum Dashboard</a>
+            <button class="btn ghost small" type="button" id="export-csv">Als Tabelle (CSV) exportieren</button>
+            <button class="btn ghost small" type="button" onclick="window.print()">Drucken</button>
+          </div>
+        </div>
+        <div class="entries" id="entries"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Hinweis</strong> Das Tagebuch ersetzt keine ärztliche Beratung. Bei plötzlicher Verschlechterung, Atemnot oder Schluckstörungen wenden Sie sich sofort an Ihre Ärztin, Ihren Arzt oder den Notruf 112.</p>
+    </div>
+  </footer>
+
+  <script src="journal.js"></script>
+</body>
+</html>
